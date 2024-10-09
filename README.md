@@ -93,76 +93,76 @@
 
 ## Quickstart
 
-* TODO:
+* `localstack start -d`
+  * start LocalStack | Docker container
+  * `docker ps`
+    * check that a new Docker container is running
 
-Start LocalStack inside a Docker container by running:
+      ```bash
+       % localstack start -d
+    
+           __                     _______ __             __
+          / /   ____  _________ _/ / ___// /_____ ______/ /__
+         / /   / __ \/ ___/ __ `/ /\__ \/ __/ __ `/ ___/ //_/
+        / /___/ /_/ / /__/ /_/ / /___/ / /_/ /_/ / /__/ ,<
+       /_____/\____/\___/\__,_/_//____/\__/\__,_/\___/_/|_|
+    
+       💻 LocalStack CLI 3.8.0
+       👤 Profile: default
+    
+      [12:47:13] starting LocalStack in Docker mode 🐳                       localstack.py:494
+                 preparing environment                                       bootstrap.py:1240
+                 configuring container                                       bootstrap.py:1248
+                 starting container                                          bootstrap.py:1258
+      [12:47:15] detaching                                                   bootstrap.py:1262
+      ```
 
-```bash
- % localstack start -d
+* `localstack status services`
+  * query the status of respective services | LocalStack
 
-     __                     _______ __             __
-    / /   ____  _________ _/ / ___// /_____ ______/ /__
-   / /   / __ \/ ___/ __ `/ /\__ \/ __/ __ `/ ___/ //_/
-  / /___/ /_/ / /__/ /_/ / /___/ / /_/ /_/ / /__/ ,<
- /_____/\____/\___/\__,_/_//____/\__/\__,_/\___/_/|_|
+    ```bash
+    % 
+    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+    ┃ Service                  ┃ Status      ┃
+    ┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+    │ acm                      │ ✔ available │
+    │ apigateway               │ ✔ available │
+    │ cloudformation           │ ✔ available │
+    │ cloudwatch               │ ✔ available │
+    │ config                   │ ✔ available │
+    │ dynamodb                 │ ✔ available │
+    ...
+    ```
 
- 💻 LocalStack CLI 3.8.0
- 👤 Profile: default
+* `awslocal sqs create-queue --queue-name sample-queue`
+  * use SQS | LocalStack
 
-[12:47:13] starting LocalStack in Docker mode 🐳                       localstack.py:494
-           preparing environment                                       bootstrap.py:1240
-           configuring container                                       bootstrap.py:1248
-           starting container                                          bootstrap.py:1258
-[12:47:15] detaching                                                   bootstrap.py:1262
-```
-
-You can query the status of respective services on LocalStack by running:
-
-```bash
-% localstack status services
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
-┃ Service                  ┃ Status      ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
-│ acm                      │ ✔ available │
-│ apigateway               │ ✔ available │
-│ cloudformation           │ ✔ available │
-│ cloudwatch               │ ✔ available │
-│ config                   │ ✔ available │
-│ dynamodb                 │ ✔ available │
-...
-```
-
-To use SQS, a fully managed distributed message queuing service, on LocalStack, run:
-
-```shell
-% awslocal sqs create-queue --queue-name sample-queue
-{
-    "QueueUrl": "http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/sample-queue"
-}
-```
-
-Learn more about [LocalStack AWS services](https://docs.localstack.cloud/references/coverage/) and using them with LocalStack's `awslocal` CLI.
+    ```shell
+    % awslocal sqs create-queue --queue-name sample-queue
+    {
+        "QueueUrl": "http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/sample-queue"
+    }
+    ```
 
 ## Running
 
-You can run LocalStack through the following options:
-
-- [LocalStack CLI](https://docs.localstack.cloud/getting-started/installation/#localstack-cli)
-- [Docker](https://docs.localstack.cloud/getting-started/installation/#docker)
-- [Docker Compose](https://docs.localstack.cloud/getting-started/installation/#docker-compose)
-- [Helm](https://docs.localstack.cloud/getting-started/installation/#helm)
+* ways to run LocalStack
+  * [LocalStack CLI](https://docs.localstack.cloud/getting-started/installation/#localstack-cli)
+  * [Docker](https://docs.localstack.cloud/getting-started/installation/#docker)
+  * [Docker Compose](https://docs.localstack.cloud/getting-started/installation/#docker-compose)
+  * [Helm](https://docs.localstack.cloud/getting-started/installation/#helm)
 
 ## Usage
 
-To start using LocalStack, check out our [documentation](https://docs.localstack.cloud).
+* check out our [documentation](https://docs.localstack.cloud)
+  * [LocalStack Configuration](https://docs.localstack.cloud/references/configuration/)
+  * [LocalStack in CI](https://docs.localstack.cloud/user-guide/ci/)
+  * [LocalStack Integrations](https://docs.localstack.cloud/user-guide/integrations/)
+  * [LocalStack Tools](https://docs.localstack.cloud/user-guide/tools/)
+  * [Understanding LocalStack](https://docs.localstack.cloud/references/)
+  * [Frequently Asked Questions](https://docs.localstack.cloud/getting-started/faq/)
 
-- [LocalStack Configuration](https://docs.localstack.cloud/references/configuration/)
-- [LocalStack in CI](https://docs.localstack.cloud/user-guide/ci/)
-- [LocalStack Integrations](https://docs.localstack.cloud/user-guide/integrations/)
-- [LocalStack Tools](https://docs.localstack.cloud/user-guide/tools/)
-- [Understanding LocalStack](https://docs.localstack.cloud/references/)
-- [Frequently Asked Questions](https://docs.localstack.cloud/getting-started/faq/)
-
+* TODO:
 To use LocalStack with a graphical user interface, you can use the following UI clients:
 
 * [LocalStack Web Application](https://app.localstack.cloud)
